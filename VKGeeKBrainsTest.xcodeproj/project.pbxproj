@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6F5B21A21DD07C82F2B24FCC /* Pods_VKGeeKBrainsTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47072D643726AF289C8AE475 /* Pods_VKGeeKBrainsTest.framework */; };
+		94D495EB25D0603500DD7CA5 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D495EA25D0603500DD7CA5 /* News.swift */; };
+		94D495EE25D0613700DD7CA5 /* GetNewsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D495ED25D0613700DD7CA5 /* GetNewsList.swift */; };
 		94E44D5B25C7141F00E7829E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E44D5A25C7141F00E7829E /* AppDelegate.swift */; };
 		94E44D5D25C7141F00E7829E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E44D5C25C7141F00E7829E /* SceneDelegate.swift */; };
 		94E44D6225C7141F00E7829E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94E44D6025C7141F00E7829E /* Main.storyboard */; };
@@ -25,7 +27,6 @@
 		94E44D9625C7164F00E7829E /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E44D9525C7164F00E7829E /* Friend.swift */; };
 		94E44D9A25C7167300E7829E /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E44D9925C7167300E7829E /* Photo.swift */; };
 		94E44D9D25C7168900E7829E /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E44D9C25C7168900E7829E /* Group.swift */; };
-		94E44DA025C716A300E7829E /* PostNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E44D9F25C716A300E7829E /* PostNews.swift */; };
 		94E44DA325C716B700E7829E /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E44DA225C716B700E7829E /* Session.swift */; };
 		94E44DA725C716EA00E7829E /* GetFriendsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E44DA625C716EA00E7829E /* GetFriendsList.swift */; };
 		94E44DAB25C7170000E7829E /* GetGroupsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E44DAA25C7170000E7829E /* GetGroupsList.swift */; };
@@ -48,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		47072D643726AF289C8AE475 /* Pods_VKGeeKBrainsTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKGeeKBrainsTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		94D495EA25D0603500DD7CA5 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		94D495ED25D0613700DD7CA5 /* GetNewsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNewsList.swift; sourceTree = "<group>"; };
 		94E44D5725C7141F00E7829E /* VKGeeKBrainsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKGeeKBrainsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94E44D5A25C7141F00E7829E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94E44D5C25C7141F00E7829E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,7 +70,6 @@
 		94E44D9525C7164F00E7829E /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		94E44D9925C7167300E7829E /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		94E44D9C25C7168900E7829E /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
-		94E44D9F25C716A300E7829E /* PostNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNews.swift; sourceTree = "<group>"; };
 		94E44DA225C716B700E7829E /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		94E44DA625C716EA00E7829E /* GetFriendsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFriendsList.swift; sourceTree = "<group>"; };
 		94E44DAA25C7170000E7829E /* GetGroupsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGroupsList.swift; sourceTree = "<group>"; };
@@ -185,8 +187,8 @@
 				94E44D9525C7164F00E7829E /* Friend.swift */,
 				94E44D9925C7167300E7829E /* Photo.swift */,
 				94E44D9C25C7168900E7829E /* Group.swift */,
-				94E44D9F25C716A300E7829E /* PostNews.swift */,
 				94E44DA225C716B700E7829E /* Session.swift */,
+				94D495EA25D0603500DD7CA5 /* News.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -200,6 +202,7 @@
 				94E44DB025C7172A00E7829E /* SearchGroup.swift */,
 				94E44DB325C7174100E7829E /* RealmOperations.swift */,
 				94E44DB625C7175300E7829E /* VKService.swift */,
+				94D495ED25D0613700DD7CA5 /* GetNewsList.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 			files = (
 				94E44D9225C7160800E7829E /* CustomNavigationController.swift in Sources */,
 				94E44D7925C7150C00E7829E /* LoginFormController.swift in Sources */,
+				94D495EB25D0603500DD7CA5 /* News.swift in Sources */,
 				94E44D8325C7156D00E7829E /* PhotosFriendCollectionViewController.swift in Sources */,
 				94E44D9625C7164F00E7829E /* Friend.swift in Sources */,
 				94E44DB725C7175300E7829E /* VKService.swift in Sources */,
@@ -353,13 +357,13 @@
 				94E44D5B25C7141F00E7829E /* AppDelegate.swift in Sources */,
 				94E44DA725C716EA00E7829E /* GetFriendsList.swift in Sources */,
 				94E44DC225C717CE00E7829E /* PhotosFriendCollectionViewCell.swift in Sources */,
+				94D495EE25D0613700DD7CA5 /* GetNewsList.swift in Sources */,
 				94E44DAE25C7171500E7829E /* GetPhotosFriend.swift in Sources */,
 				94E44D8C25C715D100E7829E /* NewGroupTableViewController.swift in Sources */,
 				94E44DB425C7174100E7829E /* RealmOperations.swift in Sources */,
 				94E44DC525C717E900E7829E /* GroupTableViewCell.swift in Sources */,
 				94E44D9A25C7167300E7829E /* Photo.swift in Sources */,
 				94E44D9D25C7168900E7829E /* Group.swift in Sources */,
-				94E44DA025C716A300E7829E /* PostNews.swift in Sources */,
 				94E44D5D25C7141F00E7829E /* SceneDelegate.swift in Sources */,
 				94E44DCE25C7183400E7829E /* LikeControl.swift in Sources */,
 				94E44D7D25C7152600E7829E /* AuthVKViewController.swift in Sources */,
