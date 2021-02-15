@@ -17,7 +17,8 @@ class GroupTableViewController: UITableViewController {
         subscribeToNotificationRealm() // загрузка данных из реалма (кэш) для первоначального отображения
 
         // запуск обновления данных из сети, запись в Реалм и загрузка из реалма новых данных
-        GetGroupsList().loadData()
+        //GetGroupsList().loadData() // обычный способ
+        GetGroupsListOperations().getData() // способ с примененением Operations
     }
     
     var realm: Realm = {
@@ -94,15 +95,11 @@ class GroupTableViewController: UITableViewController {
                 self?.loadGroupsFromRealm()
 
                 //self?.tableView.beginUpdates()
-                
                 // крашится при вызове, так как не попадает в секции, надо перерабатывать логику
                 //self?.tableView.deleteRows(at: deletions.map{ IndexPath(row: $0, section: 0) }, with: .automatic)
                 //self?.tableView.insertRows(at: insertions.map{ IndexPath(row: $0, section: 0) }, with: .automatic)
                 //self?.tableView.reloadRows(at: modifications.map{ IndexPath(row: $0, section: 0) }, with: .automatic)
-                
                 //self?.tableView.endUpdates()
-                
-
             case let .error(error):
                 print(error)
             }
@@ -129,7 +126,7 @@ class GroupTableViewController: UITableViewController {
                     //добавить новой группы в мои группы из общего списка групп
                     let newGroup = newGroupFromController.GroupsList[indexPath.row]
                     
-    //                // проверка что группа уже в списке (нужен Equatable)
+                    // проверка что группа уже в списке (нужен Equatable)
                     guard myGroups.description.contains(newGroup.groupName) == false else { return }
                     
                     // добавить новую группу (не нужно, так как все берется из Реалма)

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6F5B21A21DD07C82F2B24FCC /* Pods_VKGeeKBrainsTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47072D643726AF289C8AE475 /* Pods_VKGeeKBrainsTest.framework */; };
+		949A250425DAA37200CB14D9 /* GetGroupListOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949A250325DAA37200CB14D9 /* GetGroupListOperations.swift */; };
 		94D495EB25D0603500DD7CA5 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D495EA25D0603500DD7CA5 /* News.swift */; };
 		94D495EE25D0613700DD7CA5 /* GetNewsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D495ED25D0613700DD7CA5 /* GetNewsList.swift */; };
 		94E44D5B25C7141F00E7829E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E44D5A25C7141F00E7829E /* AppDelegate.swift */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		47072D643726AF289C8AE475 /* Pods_VKGeeKBrainsTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKGeeKBrainsTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		949A250325DAA37200CB14D9 /* GetGroupListOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGroupListOperations.swift; sourceTree = "<group>"; };
 		94D495EA25D0603500DD7CA5 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		94D495ED25D0613700DD7CA5 /* GetNewsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNewsList.swift; sourceTree = "<group>"; };
 		94E44D5725C7141F00E7829E /* VKGeeKBrainsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKGeeKBrainsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,6 +205,7 @@
 				94E44DB325C7174100E7829E /* RealmOperations.swift */,
 				94E44DB625C7175300E7829E /* VKService.swift */,
 				94D495ED25D0613700DD7CA5 /* GetNewsList.swift */,
+				949A250325DAA37200CB14D9 /* GetGroupListOperations.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				94E44DAE25C7171500E7829E /* GetPhotosFriend.swift in Sources */,
 				94E44D8C25C715D100E7829E /* NewGroupTableViewController.swift in Sources */,
 				94E44DB425C7174100E7829E /* RealmOperations.swift in Sources */,
+				949A250425DAA37200CB14D9 /* GetGroupListOperations.swift in Sources */,
 				94E44DC525C717E900E7829E /* GroupTableViewCell.swift in Sources */,
 				94E44D9A25C7167300E7829E /* Photo.swift in Sources */,
 				94E44D9D25C7168900E7829E /* Group.swift in Sources */,
