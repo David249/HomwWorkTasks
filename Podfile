@@ -14,6 +14,7 @@ target 'VKGeeKBrainsTest' do
   pod 'Firebase/Analytics'
   pod 'FirebaseDatabase'
   pod 'Firebase/Auth'
+  pod 'PromiseKit'
 
 
 

@@ -76,6 +76,15 @@ PODS:
     - nanopb/encode (= 2.30907.0)
   - nanopb/decode (2.30907.0)
   - nanopb/encode (2.30907.0)
+  - PromiseKit (6.13.1):
+    - PromiseKit/CorePromise (= 6.13.1)
+    - PromiseKit/Foundation (= 6.13.1)
+    - PromiseKit/UIKit (= 6.13.1)
+  - PromiseKit/CorePromise (6.13.1)
+  - PromiseKit/Foundation (6.13.1):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.13.1):
+    - PromiseKit/CorePromise
   - PromisesObjC (1.2.12)
   - Realm (10.5.0):
     - Realm/Headers (= 10.5.0)
@@ -91,6 +100,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - FirebaseDatabase
   - Kingfisher (~> 6.0)
+  - PromiseKit
   - RealmSwift
   - SwiftKeychainWrapper
   - SwiftyJSON (~> 4.0)
@@ -112,6 +122,7 @@ SPEC REPOS:
     - Kingfisher
     - leveldb-library
     - nanopb
+    - PromiseKit
     - PromisesObjC
     - Realm
     - RealmSwift
@@ -134,12 +145,13 @@ SPEC CHECKSUMS:
   Kingfisher: adde87a4f74f6a3845395769354efff593581740
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
+  PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   Realm: e1c22c3d83b229afb70ebc10e1771c91e9542d12
   RealmSwift: 6fc078d9d3fd7e58c71bfdbb694e252462f112a5
   SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 30626a3d78867ef261ef08ba028c625b365d8f93
+PODFILE CHECKSUM: 910cff1f34a7fb80b2a4d3e9e9bd9cac3e572d0c
 
 COCOAPODS: 1.10.0
