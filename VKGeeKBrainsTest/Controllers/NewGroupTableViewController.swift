@@ -18,6 +18,8 @@ class NewGroupTableViewController: UITableViewController, UISearchResultsUpdatin
     var searchController:UISearchController!
     var GroupsList: [Group] = []
     
+    lazy var imageCache = ImageCache(container: self.tableView) //для кэша картинок
+    
     // MARK: - Functions
     
     func setupSearchBar() {
@@ -64,9 +66,14 @@ class NewGroupTableViewController: UITableViewController, UISearchResultsUpdatin
 
         cell.nameNewGroupLabel.text = GroupsList[indexPath.row].groupName
         
-        if let imgUrl = URL(string: GroupsList[indexPath.row].groupLogo) {
-            cell.avatarNewGroupView.avatarImage.load(url: imgUrl) // работает через extension UIImageView
-        }
+        // работает через extension UIImageView
+//        if let imgUrl = URL(string: GroupsList[indexPath.row].groupLogo) {
+//            cell.avatarNewGroupView.avatarImage.load(url: imgUrl)
+//        }
+        
+        // аватар работает через кэш в ImageCache
+        let imgUrl = GroupsList[indexPath.row].groupLogo
+        cell.avatarNewGroupView.avatarImage.image = imageCache.getPhoto(at: indexPath, url: imgUrl)
 
         return cell
     }

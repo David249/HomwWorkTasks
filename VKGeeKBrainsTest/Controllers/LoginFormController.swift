@@ -11,8 +11,11 @@ class LoginFormController: UIViewController, UITextFieldDelegate {
     
     let session = Session.instance //синглтон для хранения данных о текущей сессии
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+            
+        //RealmOperations().deleteAllFromRealm() //очистка БД Реалма (при необходимости)
         
         // клик по любому месту scrollView для скрытия клавиатуры - Жест нажатия
         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
@@ -23,6 +26,7 @@ class LoginFormController: UIViewController, UITextFieldDelegate {
         self.loginTextField.delegate = self
         self.passwordTextField.delegate = self
         
+        // работает, но при смене IP ломается авторизация
         // проверка истек ли срок действия ключа доступа к ВК
 //        if session.expiredDate != nil, session.expiredDate > Date()  {
 //            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { //задержка, чтобы отработал переход

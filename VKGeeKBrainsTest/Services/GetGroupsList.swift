@@ -6,78 +6,88 @@
 //
 
 import Foundation
-import PromiseKit
+import RealmSwift
 
-// Способ загрузки данных, парсинг и запись в реалм с помощью PromiseKit
-class GetFriendsListPromise {
+struct GroupsResponse:  Decodable {
+    var response: Response
     
-    func getData() {
-        firstly {
-            loadJsonData()
-        }.then { data in
-            self.parseJsonData(data)
-        }.done { friendList in
-            self.saveDataToRealm(friendList)
-        }.catch { error in
-            print(error)
-        }
-//        .finally {
-//            print("Загрузка, парсинг и запись в реалм прошли успешно")
-//        }
-    }
-    
-    func loadJsonData() -> Promise<Data> {
-        return Promise<Data> { (resolver) in
-            let configuration = URLSessionConfiguration.default
-            let session =  URLSession(configuration: configuration)
-            var urlConstructor = URLComponents()
-            urlConstructor.scheme = "https"
-            urlConstructor.host = "api.vk.com"
-            urlConstructor.path = "/method/friends.get"
-            urlConstructor.queryItems = [
-                URLQueryItem(name: "user_id", value: String(Session.instance.userId)),
-                URLQueryItem(name: "fields", value: "photo_50"),
-                URLQueryItem(name: "access_token", value: Session.instance.token),
-                URLQueryItem(name: "v", value: "5.122")
-            ]
+    struct Response: Decodable {
+        var count: Int
+        var items: [Item]
+        
+        struct Item: Decodable {
+            var name: String
+            var logo: String  // уже тут нужно писать желаемые названия
+            var id: Int
+        
+            enum CodingKeys: String, CodingKey {
+                case name
+                case logo = "photo_50"
+                case id
+            }
             
-            session.dataTask(with: urlConstructor.url!) { (data, _, error) in
-                //print("Запрос к API: \(urlConstructor.url!)")
-                if let error = error {
-                    return resolver.reject(error)
-                } else {
-                    return resolver.fulfill(data ?? Data())
-                }
-            }.resume()
-        }
-    }
-    
-    
-    func parseJsonData(_ data: Data) -> Promise<[Friend]> {
-        return Promise<[Friend]> { (resolver) in
-            do {
-                let arrayFriends = try JSONDecoder().decode(FriendsResponse.self, from: data)
-                var friendList: [Friend] = []
-                for i in 0...arrayFriends.response.items.count-1 {
-                    // не отображаем удаленных и заблокированных друзей
-                    if arrayFriends.response.items[i].deactivated == nil {
-                        let name = ((arrayFriends.response.items[i].firstName) + " " + (arrayFriends.response.items[i].lastName))
-                        let avatar = arrayFriends.response.items[i].avatar
-                        let id = String(arrayFriends.response.items[i].id)
-                        friendList.append(Friend.init(userName: name, userAvatar: avatar, ownerID: id))
-                    }
-                }
-                resolver.fulfill(friendList)
-            } catch let error {
-                resolver.reject(error)
+            init(from decoder: Decoder) throws {
+                let container = try decoder.container(keyedBy: CodingKeys.self)
+                name = try container.decode(String.self, forKey: .name)
+                logo = try container.decode(String.self, forKey: .logo)
+                id = try container.decode(Int.self, forKey: .id)
             }
         }
     }
+
+}
+
+// Обычный способ загрузки данных, парсинг и запись в реалм
+class GetGroupsList {
     
-    func saveDataToRealm(_ friendList: [Friend]) {
-        //DispatchQueue.main.async {
-            RealmOperations().saveFriendsToRealm(friendList)
-        //}
+    //данные для авторизации в ВК
+    func loadData() {
+        
+        // Конфигурация по умолчанию
+        let configuration = URLSessionConfiguration.default
+        // собственная сессия
+        let session =  URLSession(configuration: configuration)
+        
+        // конструктор для URL
+        var urlConstructor = URLComponents()
+        urlConstructor.scheme = "https"
+        urlConstructor.host = "api.vk.com"
+        urlConstructor.path = "/method/groups.get"
+        urlConstructor.queryItems = [
+            URLQueryItem(name: "user_id", value: String(Session.instance.userId)),
+            URLQueryItem(name: "extended", value: "1"),
+            URLQueryItem(name: "access_token", value: Session.instance.token),
+            URLQueryItem(name: "v", value: "5.122")
+        ]
+        
+        // задача для запуска
+        let task = session.dataTask(with: urlConstructor.url!) { (data, response, error) in
+            //print("Запрос к API: \(urlConstructor.url!)")
+            
+            // в замыкании данные, полученные от сервера, мы преобразуем в json
+            guard let data = data else { return }
+            
+            do {
+                let arrayGroups = try JSONDecoder().decode(GroupsResponse.self, from: data)
+                var grougList: [Group] = []
+                for i in 0...arrayGroups.response.items.count-1 {
+                    let name = ((arrayGroups.response.items[i].name))
+                    let logo = arrayGroups.response.items[i].logo
+                    let id = arrayGroups.response.items[i].id
+                    grougList.append(Group.init(groupName: name, groupLogo: logo, id: id))
+                }
+                
+                DispatchQueue.main.async {
+                    RealmOperations().saveGroupsToRealm(grougList)
+                }
+                
+            } catch let error {
+                print(error)
+            }
+        }
+        task.resume()
+        
     }
+    
     
 }

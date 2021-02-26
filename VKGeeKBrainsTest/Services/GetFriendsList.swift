@@ -49,8 +49,7 @@ struct FriendsResponse: Decodable {
 }
 
 class GetFriendsList {
-    
-    //данные для авторизации в ВК
+
     func loadData() {
         
         // Конфигурация по умолчанию
@@ -100,17 +99,5 @@ class GetFriendsList {
         }
         task.resume()
     }
-    
-    //    func saveFriendsToRealm(_ friendList: [Friend]) {
-    //        do {
-    //            let realm = try Realm()
-    //            try realm.write{
-    //                realm.add(friendList)
-    //            }
-    //        } catch {
-    //            print(error)
-    //        }
-    //    }
-    
     
 }
