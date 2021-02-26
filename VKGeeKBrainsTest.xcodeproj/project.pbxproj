@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6F5B21A21DD07C82F2B24FCC /* Pods_VKGeeKBrainsTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47072D643726AF289C8AE475 /* Pods_VKGeeKBrainsTest.framework */; };
+		94690B2025E91F9600688B85 /* GetNewsListSwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94690B1F25E91F9600688B85 /* GetNewsListSwiftyJSON.swift */; };
 		9494A7C425E90798008217CB /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9494A7C325E90798008217CB /* ImageCache.swift */; };
 		9494A7C725E907FD008217CB /* GetFriendsListPromise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9494A7C625E907FD008217CB /* GetFriendsListPromise.swift */; };
 		949A250425DAA37200CB14D9 /* GetGroupListOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949A250325DAA37200CB14D9 /* GetGroupListOperations.swift */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		47072D643726AF289C8AE475 /* Pods_VKGeeKBrainsTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VKGeeKBrainsTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		94690B1F25E91F9600688B85 /* GetNewsListSwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNewsListSwiftyJSON.swift; sourceTree = "<group>"; };
 		9494A7C325E90798008217CB /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		9494A7C625E907FD008217CB /* GetFriendsListPromise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFriendsListPromise.swift; sourceTree = "<group>"; };
 		949A250325DAA37200CB14D9 /* GetGroupListOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGroupListOperations.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				949A250325DAA37200CB14D9 /* GetGroupListOperations.swift */,
 				9494A7C325E90798008217CB /* ImageCache.swift */,
 				9494A7C625E907FD008217CB /* GetFriendsListPromise.swift */,
+				94690B1F25E91F9600688B85 /* GetNewsListSwiftyJSON.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				94E44D8025C7154900E7829E /* FriendsTableViewController.swift in Sources */,
 				94E44D8F25C715E800E7829E /* NewsTableViewController.swift in Sources */,
 				94E44DCB25C7181800E7829E /* NewsTableViewCell.swift in Sources */,
+				94690B2025E91F9600688B85 /* GetNewsListSwiftyJSON.swift in Sources */,
 				94E44DBB25C7178200E7829E /* FriendsTableViewCell.swift in Sources */,
 				94E44DAB25C7170000E7829E /* GetGroupsList.swift in Sources */,
 				94E44D8625C7159500E7829E /* FriendsPhotosViewController.swift in Sources */,
