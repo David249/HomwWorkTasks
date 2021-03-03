@@ -3,7 +3,7 @@
 //  VKGeeKBrainsTest
 //
 //  Created by Давид Горзолия on 07.02.2021.
-//
+
 
 import UIKit
 
@@ -13,6 +13,7 @@ struct News {
     var date: String
     var textNews: String
     var imageNews: String
+    var aspectRatio: CGFloat
     var likes: Int
     var comments: Int
     var reposts: Int
